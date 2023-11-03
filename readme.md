@@ -45,3 +45,14 @@ A --> C(Launch New Process to generate report)
 
 
 ```
+
+
+```mermaid
+graph LR
+A[get_report]
+A --> D{File Generated}
+D --yes--> C(Send CSV as downladable)
+D --No--> E(Send Appropritae Response)
+
+
+```
