@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, send_file
 import random , string
 from psycopg2 import sql
-from app.database import get_cursor_connection
+from app.database import get_cursor_connection, close_database_connection
 import app.store as store
 import multiprocessing
 import psycopg2
@@ -34,6 +34,7 @@ def trigger_report():
 
     # Return the report_id in the response
     response_data = {"report_id": report_id}
+    close_database_connection(cursor,connection)
     return jsonify(response_data)
 
 
